@@ -124,7 +124,7 @@ class Signup(webapp2.RequestHandler):
 		user_verify = self.request.get('verify')
 		user_email = self.request.get('email')
 
-		name = valid_name(user_name)
+
 		password = valid_pass(user_pass)
 		verify = valid_pass(user_verify)
 		email = valid_email(user_email)
@@ -134,7 +134,7 @@ class Signup(webapp2.RequestHandler):
 		e_verify = ''
 		e_email = ''
 
-		if not name:
+		if not user_name and valid_name(user_name):
 			e_name = "That's not a valid Username"
 		if not password:
 			e_pass = "That's wasn't a valid Password"
